@@ -88,6 +88,8 @@ export default function connect(opts?: ConnectOptions) {
     mapQueries = true;
   }
 
+  console.log(mapQueriesToProps);
+
   // clean up the options for passing to redux
   delete opts.mapQueriesToProps;
   delete opts.mapMutationsToProps;
@@ -278,6 +280,8 @@ export default function connect(opts?: ConnectOptions) {
           state: store.getState(),
           ownProps: props,
         });
+
+        console.log(queryOptions);
 
         const oldQueries = assign({}, this.previousQueries);
         this.previousQueries = assign({}, queryOptions);
