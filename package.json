@@ -37,7 +37,7 @@
     "apollo-client": "^0.1.0 || ^0.2.0 || ^0.3.0 || ^0.4.0"
   },
   "devDependencies": {
-    "apollo-client": "^0.4.9",
+    "apollo-client": "file:///Users/amandaliu/Documents/apollo-client",
     "browserify": "^13.0.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
@@ -68,6 +68,7 @@
     "uglify-js": "^2.6.2"
   },
   "dependencies": {
+    "amandas-dummy-package": "file:///Users/amandaliu/Documents/apollo-client",
     "hoist-non-react-statics": "^1.2.0",
     "invariant": "^2.2.1",
     "lodash.flatten": "^4.2.0",
