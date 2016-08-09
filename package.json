@@ -1,6 +1,6 @@
 {
   "name": "amandas-silly-package",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React data container for Apollo Client",
   "main": "index.js",
   "scripts": {
@@ -67,7 +67,6 @@
     "uglify-js": "^2.6.2"
   },
   "dependencies": {
-    "amandas-dummy-package": "file:///Users/amandaliu/Documents/apollo-client",
     "hoist-non-react-statics": "^1.2.0",
     "invariant": "^2.2.1",
     "lodash.flatten": "^4.2.0",
