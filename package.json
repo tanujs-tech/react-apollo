@@ -1,6 +1,6 @@
 {
-  "name": "react-apollo",
-  "version": "0.3.20",
+  "name": "amandas-silly-package",
+  "version": "0.0.1",
   "description": "React data container for Apollo Client",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "apollostack/react-apollo"
+    "url": "apollostack/react-apollo/tree/graphql-subscriptions"
   },
   "keywords": [
     "ecmascript",
@@ -29,7 +29,7 @@
     "npm",
     "react"
   ],
-  "author": "James Baxley <james.baxley@newspring.cc>",
+  "author": "Amanda Liu",
   "license": "MIT",
   "peerDependencies": {
     "react": "0.14.x || 15.* || ^15.0.0-rc",

@@ -345,6 +345,7 @@ export default function connect(opts?: ConnectOptions) {
             startPolling,
             stopPolling,
             fetchMore,
+            startGraphQLSubscription,
             oldData = {};
 
         // since we don't have the query id, we can manually handle
@@ -401,6 +402,20 @@ export default function connect(opts?: ConnectOptions) {
           };
         };
 
+        const createBoundStartGraphQLSubscription = (dataKey, startSubscriptionMethod) => {
+          return (...args) => {
+            //this.hasQueryDataChanged = true;
+            this.data[dataKey] = assign(this.data[dataKey], {
+              loading: true,
+            });
+            if (this.hasMounted) {
+              this.forceRenderChildren();
+            }
+          return startSubscriptionMethod();
+          };
+
+        };
+
         const forceRender = ({ errors, data = oldData }: any) => {
           const resultKeyConflict: boolean = (
             'errors' in data ||
@@ -408,7 +423,8 @@ export default function connect(opts?: ConnectOptions) {
             'refetch' in data ||
             'startPolling' in data ||
             'stopPolling' in data ||
-            'fetchMore' in data
+            'fetchMore' in data ||
+            'startGraphQLSubscription' in data
           );
 
           invariant(!resultKeyConflict,
@@ -433,6 +449,7 @@ export default function connect(opts?: ConnectOptions) {
             startPolling,
             stopPolling,
             fetchMore,
+            startGraphQLSubscription,
           }, data);
 
           if (this.hasMounted) {
@@ -457,12 +474,15 @@ export default function connect(opts?: ConnectOptions) {
           (this.querySubscriptions[key] as any).stopPolling;
         fetchMore = createBoundFetchMore(key,
           this.queryObservables[key].fetchMore);
+        startGraphQLSubscription = createBoundStartGraphQLSubscription(key,
+          this.queryObservables[key].startGraphQLSubscription);
 
         this.data[key] = assign(this.data[key], {
           refetch,
           startPolling,
           stopPolling,
           fetchMore,
+          startGraphQLSubscription,
         });
       }
 
@@ -505,13 +525,14 @@ export default function connect(opts?: ConnectOptions) {
             'errors' in data ||
             'loading' in data ||
             'fetchMore' in data ||
-            'refetch' in data
+            'refetch' in data ||
+            'startGraphQLSubscription' in data
           );
 
           invariant(!resultKeyConflict,
             `the result of the '${key}' mutation contains keys that ` +
             `conflict with the return object. 'errors', 'loading', ` +
-            `fetchMore' and 'refetch' cannot be ` +
+            `fetchMore' and 'refetch' and 'startGraphQLSubscription' cannot be ` +
             `returned keys`
           );
 

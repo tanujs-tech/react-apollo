@@ -364,7 +364,7 @@ export class QueryManager {
         updateQueries?: MutationQueryReducersMap;
     }): Promise<ApolloQueryResult>;
     queryListenerForObserver(queryId: string, options: WatchQueryOptions, observer: Observer<ApolloQueryResult>): QueryListener;
-    watchQuery(options: WatchQueryOptions, shouldSubscribe?: boolean): ObservableQuery;
+    watchQuery(options: WatchQueryOptions, shouldSubscribe?: boolean, graphQLSubscription?: boolean): ObservableQuery;
     query(options: WatchQueryOptions): Promise<ApolloQueryResult>;
     fetchQuery(queryId: string, options: WatchQueryOptions): Promise<ApolloQueryResult>;
     generateQueryId(): string;
@@ -477,6 +477,7 @@ export class ObservableQuery extends Observable<ApolloQueryResult> {
     fetchMore: (options: FetchMoreQueryOptions & FetchMoreOptions) => Promise<any>;
     stopPolling: () => void;
     startPolling: (p: number) => void;
+    startGraphQLSubscription: () => number;
     options: WatchQueryOptions;
     private queryId;
     private scheduler;
@@ -766,7 +767,7 @@ export default class ApolloClient {
         mutationBehaviorReducers?: MutationBehaviorReducerMap;
         batchInterval?: number;
     });
-    watchQuery: (options: WatchQueryOptions) => ObservableQuery;
+    watchQuery: (options: WatchQueryOptions, graphQLSubscription?: boolean) => ObservableQuery;
     query: (options: WatchQueryOptions) => Promise<{
         data: any;
     }>;
