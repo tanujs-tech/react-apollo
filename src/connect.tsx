@@ -300,9 +300,12 @@ export default function connect(opts?: ConnectOptions) {
               continue;
             }
 
-            const { query, variables, forceFetch } = queryOptions[key];
-
-            const observableQuery = watchQuery(queryOptions[key]);
+            const { query, variables, forceFetch, graphQLSubscription } = queryOptions[key];
+            console.log(queryOptions[key]);
+            const observableQuery = watchQuery(queryOptions[key], graphQLSubscription);
+            if (graphQLSubscription) {
+              observableQuery.startGraphQLSubscription();
+            }
 
             // rudimentary way to manually check cache
             let queryData = defaultQueryData as any;

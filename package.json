@@ -1,6 +1,6 @@
 {
   "name": "amandas-silly-package",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "React data container for Apollo Client",
   "main": "index.js",
   "scripts": {
@@ -36,7 +36,7 @@
     "redux": "^2.0.0 || ^3.0.0"
   },
   "devDependencies": {
-    "apollo-client": "file:///Users/amandaliu/Documents/apollo-client",
+    "apollo-client": "^0.4.9",
     "browserify": "^13.0.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
