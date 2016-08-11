@@ -14,7 +14,7 @@ import {
   Provider,
 } from 'react-redux';
 
-import ApolloClient from 'apollo-client';
+import ApolloClient from 'amandas-dummy-package';
 
 import invariant = require('invariant');
 

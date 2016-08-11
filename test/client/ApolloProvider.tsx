@@ -11,7 +11,7 @@ import * as TestUtils from 'react-addons-test-utils';
 chai.use(chaiEnzyme()); // Note the invocation at the end
 const { expect } = chai;
 
-import ApolloClient from 'apollo-client';
+import ApolloClient from 'amandas-dummy-package';
 
 import ApolloProvider  from '../../src/ApolloProvider';
 

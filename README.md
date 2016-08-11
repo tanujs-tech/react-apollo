@@ -5,14 +5,14 @@
 [![Build Status](https://travis-ci.org/apollostack/react-apollo.svg?branch=master)](https://travis-ci.org/apollostack/react-apollo)
 [![Coverage Status](https://coveralls.io/repos/github/apollostack/react-apollo/badge.svg?branch=master)](https://coveralls.io/github/apollostack/react-apollo?branch=master)
 
-Use your GraphQL server data in your React components, with the [Apollo Client](https://github.com/apollostack/apollo-client).
+Use your GraphQL server data in your React components, with the [Apollo Client](https://github.com/apollostack/amandas-dummy-package).
 
 - [Install](#install)
-- [Docs](http://docs.apollostack.com/apollo-client/react.html)
+- [Docs](http://docs.apollostack.com/amandas-dummy-package/react.html)
 
 ### Documentation
 
-Documentation for this client can be found [here](http://docs.apollostack.com/apollo-client/react.html);
+Documentation for this client can be found [here](http://docs.apollostack.com/amandas-dummy-package/react.html);
 
 ## Install
 

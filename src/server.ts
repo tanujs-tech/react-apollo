@@ -1,7 +1,7 @@
 
 import { Children, createElement } from 'react';
 import * as ReactDOM from 'react-dom/server';
-import ApolloClient from 'apollo-client';
+import ApolloClient from 'amandas-dummy-package';
 import flatten = require('lodash.flatten');
 import assign = require('object-assign');
 

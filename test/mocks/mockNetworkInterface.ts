@@ -1,7 +1,7 @@
 import {
   NetworkInterface,
   Request,
-} from 'apollo-client/networkInterface';
+} from 'amandas-dummy-package/networkInterface';
 
 import {
   GraphQLResult,

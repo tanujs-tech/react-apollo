@@ -5,7 +5,7 @@ import { mount } from 'enzyme';
 import { createStore } from 'redux';
 import gql from 'graphql-tag';
 
-import ApolloClient from 'apollo-client';
+import ApolloClient from 'amandas-dummy-package';
 
 declare function require(name: string);
 import chaiEnzyme = require('chai-enzyme');

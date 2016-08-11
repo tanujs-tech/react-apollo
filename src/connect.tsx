@@ -25,15 +25,15 @@ import {
 
 import ApolloClient, {
   readQueryFromStore,
-} from 'apollo-client';
+} from 'amandas-dummy-package';
 
 import {
   ObservableQuery,
-} from 'apollo-client/ObservableQuery';
+} from 'amandas-dummy-package/ObservableQuery';
 
 import {
   Subscription,
-} from 'apollo-client/util/Observable';
+} from 'amandas-dummy-package/util/Observable';
 
 import {
   GraphQLResult,
@@ -87,8 +87,6 @@ export default function connect(opts?: ConnectOptions) {
   if (mapQueriesToProps) {
     mapQueries = true;
   }
-
-  console.log(mapQueriesToProps);
 
   // clean up the options for passing to redux
   delete opts.mapQueriesToProps;
@@ -232,7 +230,7 @@ export default function connect(opts?: ConnectOptions) {
       forceRenderChildren() {
         const { isRenderingError } = this;
         // ensure setState throws an error in the render
-        // to prevent it from going to apollo-client as a
+        // to prevent it from going to amandas-dummy-package as a
         // network error
         try {
           // update state to latest of redux store
@@ -281,8 +279,6 @@ export default function connect(opts?: ConnectOptions) {
           ownProps: props,
         });
 
-        console.log(queryOptions);
-
         const oldQueries = assign({}, this.previousQueries);
         this.previousQueries = assign({}, queryOptions);
 
@@ -301,7 +297,7 @@ export default function connect(opts?: ConnectOptions) {
             }
 
             const { query, variables, forceFetch, graphQLSubscription } = queryOptions[key];
-            console.log(queryOptions[key]);
+
             const observableQuery = watchQuery(queryOptions[key], graphQLSubscription);
             if (graphQLSubscription) {
               observableQuery.startGraphQLSubscription();

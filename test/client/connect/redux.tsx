@@ -6,7 +6,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { connect as ReactReduxConnect } from 'react-redux';
 import assign = require('object-assign');
 
-import ApolloClient from 'apollo-client';
+import ApolloClient from 'amandas-dummy-package';
 
 declare function require(name: string);
 import chaiEnzyme = require('chai-enzyme');

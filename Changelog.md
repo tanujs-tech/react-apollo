@@ -35,7 +35,7 @@ Expect active development and potentially significant breaking changes in the `0
 
 ### v0.3.13
 
-- Bug: fixed issue causing errors to be passed to apollo-client [#89](https://github.com/apollostack/react-apollo/pull/89)
+- Bug: fixed issue causing errors to be passed to amandas-dummy-package [#89](https://github.com/apollostack/react-apollo/pull/89)
 
 ### v0.3.11/12
 
@@ -79,7 +79,7 @@ Chore: Split tests to make them easier to maintain.
 
 ### v0.3.1
 
-- Feature: Support 0.3.0 of apollo-client
+- Feature: Support 0.3.0 of amandas-dummy-package
 
 ### v0.3.0
 
@@ -87,7 +87,7 @@ Chore: Split tests to make them easier to maintain.
 
 ### v0.2.1
 
-- Feature: Support 0.1.0 and 0.2.0 of apollo-client
+- Feature: Support 0.1.0 and 0.2.0 of amandas-dummy-package
 
 ### v0.2.0
 
@@ -123,11 +123,11 @@ becomes
 
 ### v0.1.2
 
-Bug: - Adjust loading lifecycle marker to better match the behavior of apollo-client [#11](https://github.com/apollostack/react-apollo/pull/11)
+Bug: - Adjust loading lifecycle marker to better match the behavior of amandas-dummy-package [#11](https://github.com/apollostack/react-apollo/pull/11)
 
 ### v0.1.1
 
-Feature: - Update to support new observable API from apollo-client [#9](https://github.com/apollostack/react-apollo/pull/9)
+Feature: - Update to support new observable API from amandas-dummy-package [#9](https://github.com/apollostack/react-apollo/pull/9)
 
 ### v0.1.0
 

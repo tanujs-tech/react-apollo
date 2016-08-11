@@ -1,7 +1,7 @@
 import * as chai from 'chai';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/server';
-import ApolloClient, { createNetworkInterface } from 'apollo-client';
+import ApolloClient, { createNetworkInterface } from 'amandas-dummy-package';
 import { connect, ApolloProvider } from '../../src';
 import { getDataFromTree, renderToStringWithData } from '../../src/server';
 import 'isomorphic-fetch';

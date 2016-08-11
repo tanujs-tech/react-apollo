@@ -9,7 +9,7 @@
     "posttest": "npm run lint",
     "filesize": "npm run compile:browser && ./scripts/filesize.js --file=./dist/index.min.js --maxGzip=15",
     "compile": "tsc",
-    "compile:browser": "rm -rf ./dist && mkdir ./dist && browserify ./lib/src/index.js --i react --i apollo-client -o=./dist/index.js && npm run minify:browser",
+    "compile:browser": "rm -rf ./dist && mkdir ./dist && browserify ./lib/src/index.js --i react --i amandas-dummy-package -o=./dist/index.js && npm run minify:browser",
     "minify:browser": "uglifyjs --compress --mangle --screw-ie8 -o=./dist/index.min.js -- ./dist/index.js",
     "watch": "tsc -w",
     "lint": "tslint 'src/*.ts*' && tslint 'test/*.ts*'",
@@ -36,7 +36,7 @@
     "redux": "^2.0.0 || ^3.0.0"
   },
   "devDependencies": {
-    "apollo-client": "^0.4.9",
+    "amandas-dummy-package": "0.0.22",
     "browserify": "^13.0.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
