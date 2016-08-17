@@ -1,5 +1,5 @@
 {
-  "name": "amandas-silly-package",
+  "name": "react-apollo",
   "version": "0.0.7",
   "description": "React data container for Apollo Client",
   "main": "index.js",
@@ -36,7 +36,7 @@
     "redux": "^2.0.0 || ^3.0.0"
   },
   "devDependencies": {
-    "amandas-dummy-package": "0.0.22",
+    "amandas-dummy-package": "^0.1.0",
     "browserify": "^13.0.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
