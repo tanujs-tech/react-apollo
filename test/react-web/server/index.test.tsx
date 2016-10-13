@@ -77,7 +77,7 @@ describe('SSR', () => {
         ;
     });
 
-    it('should correctly skip a query mutually exclusive to an anothor query (deprecated)', () => {
+    it('should correctly skip a query mutually exclusive to an another query (deprecated)', () => {
 
       const query1 = gql`{ currentUser { firstName } }`;
       const data1 = { currentUser: { firstName: 'James' } };
