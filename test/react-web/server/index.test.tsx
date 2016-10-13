@@ -77,6 +77,36 @@ describe('SSR', () => {
         ;
     });
 
+    it('should correctly skip a query mutually exclusive to an anothor query (deprecated)', () => {
+
+      const query1 = gql`{ currentUser { firstName } }`;
+      const data1 = { currentUser: { firstName: 'James' } };
+      const query2 = gql`{ currentUser { lastName } }`;
+      const data2 = { currentUser: { lastName: 'Baxley' } };
+      const networkInterface = mockNetworkInterface(
+        { request: { query: query1 }, result: { data: data1 }, delay: 50 },
+        { request: { query: query2 }, result: { data: data2 }, delay: 50 }
+      );
+      const apolloClient = new ApolloClient({ networkInterface });
+
+      const OriginalElement = ({ data }) => (
+        <div>{data.loading ? 'loading' : 'skipped'}</div>
+      );
+
+      const WrappedElement = graphql(query1, { options: { skip: true }})(
+        graphql(query2, { options: { skip: false }})(OriginalElement)
+      );
+
+      const app = (<ApolloProvider client={apolloClient}><WrappedElement /></ApolloProvider>);
+
+      return getDataFromTree(app)
+        .then(() => {
+          const markup = ReactDOM.renderToString(app);
+          expect(markup).toMatch(/loading/);
+        })
+        ;
+    });
+
     it('should run return the initial state for hydration', () => {
       const query = gql`{ currentUser { firstName } }`;
       const data = { currentUser: { firstName: 'James' } };
