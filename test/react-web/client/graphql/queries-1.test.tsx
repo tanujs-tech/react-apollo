@@ -1058,6 +1058,51 @@ describe('queries', () => {
     renderer.create(<ProviderMock client={client}><Container /></ProviderMock>);
   });
 
+  it('fetchMore that makes no changes returns to not loading', (done) => {
+    const query = gql`
+      query people($skip: Int, $first: Int) { allPeople(first: $first, skip: $skip) { people { name } } }
+    `;
+    const data = { allPeople: { people: [ { name: 'Luke Skywalker' } ] } };
+    const variables = { skip: 1, first: 1 };
+    const variables2 = { skip: 2, first: 1 };
+
+    const networkInterface = mockNetworkInterface(
+      { request: { query, variables }, result: { data } },
+      { request: { query, variables: variables2 }, result: { data: data } }
+    );
+    const client = new ApolloClient({ networkInterface, addTypename: false });
+
+    let count = 0;
+    @graphql(query, { options: () => ({ variables }) })
+    class Container extends React.Component<any, any> {
+      componentWillReceiveProps = wrap(done, (props) => {
+        if (count === 0) {
+          props.data.fetchMore({
+            variables: { skip: 2 },
+            updateQuery: (prev) => prev,
+          }).then(wrap(done, result => {
+            expect(result.data.allPeople.people).toEqual(data.allPeople.people);
+          }));
+        } else if (count === 1) {
+          expect(props.data.variables).toEqual(variables);
+          expect(props.data.loading).toBe(false);
+          expect(props.data.allPeople.people).toEqual(
+            data.allPeople.people.concat(data.allPeople.people)
+          );
+          done();
+        } else {
+          throw new Error('should not reach this point');
+        }
+        count++;
+      })
+      render() {
+        return null;
+      }
+    };
+
+    renderer.create(<ProviderMock client={client}><Container /></ProviderMock>);
+  });
+
   it('exposes stopPolling as part of the props api', (done) => {
     const query = gql`query people { allPeople(first: 1) { people { name } } }`;
     const data = { allPeople: { people: [ { name: 'Luke Skywalker' } ] } };
